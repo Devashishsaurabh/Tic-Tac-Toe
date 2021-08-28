@@ -57,9 +57,10 @@ impl Interface for  MinMax {
         if  !self.is_moves_left() {
             return 0;            
         }
-        match self.is_won() {
-            'X' => return MAX_VALUE - depth,
-            'O' => return depth - MAX_VALUE, 
+        let winner = self.is_won();
+        match winner {
+            _ if winner == self.player => return MAX_VALUE - depth,
+            _ if winner == self.opponent => return depth - MAX_VALUE, 
             ' ' => match is_maximizer {
                 Player::Maximizer => return * &self.maximize(depth+1),
                 Player::Minimizer => return * &self.minimize(depth+1),
