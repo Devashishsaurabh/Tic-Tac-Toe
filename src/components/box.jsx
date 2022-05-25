@@ -1,7 +1,7 @@
 import React from 'react'
 
 const style = {
-	border: "3px solid black",
+	border: "3px solid red",
 	fontSize: "40px",
 }   
 
